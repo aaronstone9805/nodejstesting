@@ -20,11 +20,11 @@ jobs:
  
   deploy:
     needs: build
-    runs-on: self-hosted //added selfhosted runner step
+    runs-on: self-hosted
     steps:
       - name: Pull image from docker hub
         run: docker pull saibaba42/nodejs:latest 
       - name: Delete old container
         run: docker rm -f nodejs-container  
-      - name: Run Docker Container
+      - name: Run Docker Container 
         run: docker run -d -p 4000:4000 --name nodejs-container -e MONGO_PASSWORD='${{ secrets.MONGO_PASSWORD }}' saibaba42/nodejs
