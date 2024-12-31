@@ -20,7 +20,7 @@ jobs:
  
   deploy:
     needs: build
-    runs-on: self-hosted 
+    runs-on: self-hosted //added selfhosted runner step
     steps:
       - name: Pull image from docker hub
         run: docker pull saibaba42/nodejs:latest 
